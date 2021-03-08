@@ -9,14 +9,16 @@ function load() {
 }
 
 function enable() {
-    var nice_hook = new hook_api(hook);
+	var nice_hook = new hook_api(hook);
 
-    var embed = new hook_api.EmbedObject();
-    embed.setColor(Java.type("java.awt.Color").RED);
-    embed.setTitle("Server started ._.");
+	nice_hook.setUsername("Server");
 
-    nice_hook.addEmbed(embed);
-    nice_hook.execute();
+	var embed = new hook_api.EmbedObject();
+	embed.setColor(Java.type("java.awt.Color").RED);
+	embed.setTitle("Server started ._.");
+
+	nice_hook.addEmbed(embed);
+	nice_hook.execute();
 
 	api.registerEvent("PlayerLogin", function(who) {
         	api.sendHookMessage(hook, "Player " + who + " Joined the game!");
@@ -24,5 +26,5 @@ function enable() {
 }
 
 function disable() {
-    api.sendHookMessage(hook, "Server stopping ...");
+	api.sendHookMessage(hook, "Server stopping ...");
 }
